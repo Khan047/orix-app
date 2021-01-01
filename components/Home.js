@@ -1,105 +1,91 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Image, Button } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { StyleSheet, Text, View, Image } from "react-native";
+import { createStackNavigator } from "react-navigation";
 import * as font from "expo-font";
-import Home from "./components/Home";
-import Profile from "./components/Profile";
-import Settings from "./components/Settings";
-import MenuTray from "./components/MenuTray.js";
-const RootStack = createStackNavigator();
-const App = () => {
+import NavBar from "./NavBar";
+export default function Home(props) {
   useEffect(() => {
     font.loadAsync({
-      MulishRegular: require("./assets/fonts/Mulish-Regular.ttf"),
+      MulishRegular: require("../assets/fonts/Mulish-Regular.ttf"),
     });
   }, []);
   return (
-    // <RootStack />
-    <NavigationContainer>
-      <RootStack.Navigator
-        screenOptions={{
-          headerStyle: {
-            height: 0,
-          },
-        }}
-      >
-        <RootStack.Screen name="Home" component={Home} />
-        <RootStack.Screen name="Profile" component={Profile} />
-        <RootStack.Screen name="Settings" component={Settings} />
-        <RootStack.Screen name="MenuTray" component={MenuTray} />
-      </RootStack.Navigator>
-    </NavigationContainer>
-    // <View style={styles.container}>
-    //   {/* <Text>Open up App.js to start working on your app yes!</Text> */}
-    //   <View style={styles.Background1}>
-    //     <View style={styles.Background2}></View>
-    //     <View style={styles.Background3}>
-    //       <View style={styles.Background4}></View>
-    //     </View>
-    //   </View>
-    //   <StatusBar style="auto" />
-    //   <View style={styles.MainContent}>
-    //     <View style={styles.NavHeader}>
-    //       <View style={styles.NavButton}>
-    //         <Image style={styles.tinyLogo} source={require("./assets/n.png")} />
-    //       </View>
-    //       <View style={styles.Profile}>
-    //         <Image
-    //           style={styles.tinyLogo}
-    //           source={require("./assets/girl.png")}
-    //         />
-    //       </View>
-    //     </View>
-    //     <View style={styles.Title}>
-    //       <Text style={styles.TitleText}>File </Text>
-    //       <Text style={styles.TitleText2}>Manager</Text>
-    //       <Text style={styles.subHead}>
-    //         Let’s clean and
-    //         <Text style={styles.subHeadYellow}> manage your files.</Text>
-    //       </Text>
-    //     </View>
-    //     <View style={styles.MainCardContainer}>
-    //       <View style={styles.StorageTabs}>
-    //         <Text style={styles.TabOne}>Internal Storage</Text>
-    //         <View style={styles.MidSection}>
-    //           <View style={styles.MidSectionSquare}></View>
-    //         </View>
-    //         <Text style={styles.TabTwo}>External Storage</Text>
-    //       </View>
-    //       <View style={styles.MainCardWrapper}>
-    //         <View style={styles.MainCard}>
-    //           <View style={styles.CardTitleContainer}>
-    //             <View style={styles.CardTitleText}></View>
-    //             <View style={styles.Icon}>
-    //               <Image
-    //                 style={styles.tinyLogo}
-    //                 source={require("./assets/f.png")}
-    //               />
-    //             </View>
-    //           </View>
-    //           <View style={styles.DonutChartcontainer}>
-    //             <Image
-    //               style={styles.DonutChart}
-    //               source={require("./assets/circle.png")}
-    //             />
-    //           </View>
+    <View style={styles.container}>
+      {/* <Text>Open up App.js to start working on your app yes!</Text> */}
+      <View style={styles.Background1}>
+        <View style={styles.Background2}></View>
+        <View style={styles.Background3}>
+          <View style={styles.Background4}></View>
+        </View>
+      </View>
+      <StatusBar style="auto" />
+      <View style={styles.MainContent}>
+        <View style={styles.NavHeader}>
+          <View style={styles.NavButton}>
+            <Image
+              style={styles.tinyLogo}
+              source={require("../assets/n.png")}
+            />
+          </View>
+          <View style={styles.Profile}>
+            <Image
+              style={styles.tinyLogo}
+              source={require("../assets/girl.png")}
+            />
+          </View>
+        </View>
+        <View style={styles.ContentWrapper}>
+          <View style={styles.Title}>
+            <Text style={styles.TitleText}>File </Text>
+            <Text style={styles.TitleText2}>Manager</Text>
+            <Text style={styles.subHead}>
+              Let’s clean and
+              <Text style={styles.subHeadYellow}> manage your files.</Text>
+            </Text>
+          </View>
+          <View style={styles.MainCardContainer}>
+            <View style={styles.StorageTabs}>
+              <Text style={styles.TabOne}>Internal Storage</Text>
+              <View style={styles.MidSection}>
+                <View style={styles.MidSectionSquare}></View>
+              </View>
+              <Text style={styles.TabTwo}>External Storage</Text>
+            </View>
+            <View style={styles.MainCardWrapper}>
+              <View style={styles.MainCard}>
+                <View style={styles.CardTitleContainer}>
+                  <Text style={styles.CardTitleText}>Storage</Text>
+                  <View style={styles.Icon}>
+                    <Image
+                      style={styles.tinyLogo}
+                      source={require("../assets/f.png")}
+                    />
+                  </View>
+                </View>
+                <View style={styles.DonutChartcontainer}>
+                  <Image
+                    style={styles.DonutChart}
+                    source={require("../assets/circle.png")}
+                  />
+                </View>
 
-    //           <View style={styles.StorangeButtonOuter}>
-    //             <View style={styles.StorangeButtonInner}>
-    //               <Text style={styles.StorageButtonText}>Storage</Text>
-    //             </View>
-    //           </View>
-    //         </View>
+                <View style={styles.StorangeButtonOuter}>
+                  <View style={styles.StorangeButtonInner}>
+                    <Text style={styles.StorageButtonText}>Storage</Text>
+                  </View>
+                </View>
+              </View>
 
-    //         <View style={styles.MainCardDeco}></View>
-    //       </View>
-    //     </View>
-    //   </View>
-    // </View>
+              <View style={styles.MainCardDeco}></View>
+            </View>
+          </View>
+        </View>
+        <NavBar navigation={props.navigation} />
+      </View>
+    </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -144,7 +130,7 @@ const styles = StyleSheet.create({
     width: "100%",
 
     // display: "flex",
-    // justifyContent: "center",
+    justifyContent: "space-between",
     // alignItems: "center",
   },
   NavHeader: {
@@ -157,7 +143,7 @@ const styles = StyleSheet.create({
 
     marginTop: "2%",
     padding: 30,
-    paddingBottom: 15,
+    paddingBottom: 0,
   },
   tinyLogo: {
     width: "100%",
@@ -179,6 +165,7 @@ const styles = StyleSheet.create({
     width: "100%",
 
     padding: 30,
+    paddingTop: 0,
   },
   TitleText: {
     fontFamily: "MulishRegular",
@@ -321,4 +308,3 @@ const styles = StyleSheet.create({
     width: 218,
   },
 });
-export default App;
