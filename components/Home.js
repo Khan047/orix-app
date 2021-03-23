@@ -46,7 +46,7 @@ export default function Home(props) {
           </View>
           <View style={styles.MainCardContainer}>
             <View style={styles.StorageTabs}>
-              <Text style={styles.TabOne}>Internal Storage</Text>
+              <Text style={styles.TabOne}>Internal Storage Show</Text>
               <View style={styles.MidSection}>
                 <View style={styles.MidSectionSquare}></View>
               </View>
